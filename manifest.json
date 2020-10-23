@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+  "name": "Mask Report",
+  "version": "0.0.1",
+  "description": "By Nithin S",
+  "icons": {
+    "128": "icon.png"
+  },
+  "browser_action": {
+    "default_icon":"icon.png",
+    "default_title": "N-bot - Microsoft Teams Online class Attendance Bot",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["p5.js","p5dom.js","m5.js","maskScript.js"]
+  }],
+  "permissions": [
+    "storage",
+    "activeTab"
+  ]
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>N-Alert</title>
+    <link href="bootstrap.min.css"  rel="stylesheet"/>
+    <style>
+        body{
+            min-width: 500px;
+        }
+        .head{
+            background-color: #007bff;
+            color: white;
+            font-size: 40px;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .success{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="head">
+        Mask Alert
+    </div>
+    <div class="container first">
+        <div class="info">
+            <ul>
+                <li>Alerts the user to wear back his mask in case of removal</li>
+                <li>If mask is removed for 10 or more seconds, an alert mail goes to the system admin</li>
+                <li>Daily reports can be generated to get analytics on mask removal and chances of covid attack for the present user activity</li>
+                <li>Enter a system name or number just to identify the system during the alert mails</li>
+                <li>Enter system admin's mail ID</li>
+            </ul>
+        </div>
+    <form autocomplete="on" id="myForm">
+        <div class="form-row">
+            <div class="col input-group">
+                <div class="input-group-append">
+                    <span class="input-group-text">This system's name</span>
+                </div>
+                <input type="text" class="form-control sysName" name="sysName" placeholder="Eg : Person A's system" required>
+            </div>
+        </div><br>
+        <div class="form-row">
+            <div class="col input-group">
+                <div class="input-group-append">
+                    <span class="input-group-text">Admin email ID</span>
+                </div>
+                <input type="text" class="form-control betaEmail" name="betaEmail" placeholder="Email id to be notified" required>
+            </div>
+        </div><br>
+    </form>
+    <button type="button" class="btn btn-primary btn-lg btn-block m-10 update">
+        Update
+    </button><br>
+    </div>
+    <div class="container success">
+        <div class="alert alert-success" role="alert">
+            Update Successful
+      </div>
+      <div class="alert alert-primary" role="alert">
+        You'll be notified over your email whenever someone removes their mask for 10 seconds or more
+      </div>
+    </div>
+
+    <h6 style="text-align: end;font-size: small;"><a href="mailto:nithin.s491@gmail.com" target="_blank">Report bugs here</a></h6>
+</body>
+<script src="popup.js"></script>
+</html>
