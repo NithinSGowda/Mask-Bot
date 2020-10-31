@@ -9,8 +9,8 @@ let classifier;
 var danger;
 var duration;
 var sent = false;
-// let imageModelURL = 'https://teachablemachine.withgoogle.com/models/5RZmYaOzZ/';
-let imageModelURL = 'https://teachablemachine.withgoogle.com/models/KAtXyi88Q/';
+let imageModelURL = 'https://teachablemachine.withgoogle.com/models/q2npglj91/';
+// let imageModelURL = 'https://teachablemachine.withgoogle.com/models/KAtXyi88Q/';
 
 let video;
 let flippedVideo;
@@ -73,21 +73,42 @@ if(label=="No mask"){
     t1 = performance.now()
     thisTime = Math.round(((t1-t0)/1000)*1);
     document.querySelector('.nt').innerHTML=thisTime;
-        if(thisTime==300){
-            sendMail(thisTime,"low");
+        if(thisTime==30){
+            if(!sent){
+                sent = true
+                setTimeout(() => {
+                    sendMail(thisTime,"Moderate")
+                    // document.querySelector('.blockBox').style.display="block";
+                    sent = false;
+                }, 1500);
+            }
         }
-        else if(thisTime==600){
-            sendMail(thisTime,"medium")
+        else if(thisTime==60){
+            if(!sent){
+                sent = true
+                setTimeout(() => {
+                    sendMail(thisTime,"High")
+                    // document.querySelector('.blockBox').style.display="block";
+                    sent = false;
+                }, 1500);
+            }
         }
-        else if(thisTime==600){
-            sendMail(thisTime,"high")
-        }
-        else if(thisTime==9){
+        else if(thisTime==90){
             if(!sent){
                 sent = true
                 setTimeout(() => {
                     sendMail(thisTime,"Very high")
                     document.querySelector('.blockBox').style.display="block";
+                    sent = false;
+                }, 1500);
+            }
+        }
+        else if(thisTime==15){
+            if(!sent){
+                sent = true
+                setTimeout(() => {
+                    sendMail(thisTime,"Low")
+                    // document.querySelector('.blockBox').style.display="block";
                     sent = false;
                 }, 1500);
             }
